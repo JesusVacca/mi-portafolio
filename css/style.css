@@ -1,0 +1,425 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: "Calistoga", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+html{
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+:root{
+    --jet: #353535ff;
+    --caribbean-current: #3c6e71ff;
+    --white: #ffffffff;
+    --platinum: #d9d9d9ff;
+    --indigo-dye: #284b63ff;
+    --border:rgb(39, 133, 196);
+    --header-scroll:rgba(0, 0, 0, 0.801);
+}
+.root{
+    max-width: 1440px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background-image: url('../image/my\ photo.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.header{
+    width: 100%;
+    height: 100px;
+    background: transparent;
+    display: flex;
+    position: fixed;
+    transition: all .3s ease-in-out;
+    z-index: 99;
+    top: 0;
+    left: 0;
+}
+.header .hamburguesa{
+    position: absolute;
+    border: none;
+    right: 1em;
+    top: 35px;
+    background: transparent;
+    z-index: 999;
+    cursor: pointer;
+    display: none;
+}
+.header .hamburguesa.open span:nth-child(1){
+    transform: rotate(45deg) translate(1px,4px);
+}
+.header .hamburguesa.open span:nth-child(2){
+    display: none;
+}
+.header .hamburguesa.open span:nth-child(3){
+    transform: rotate(-45deg) translate(1px, -4px);
+}
+.header .hamburguesa span{
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    margin: .3em;
+    border-radius: .5em;
+    transition: all .3s ease-in-out;
+}
+.header.scroll{
+    background: var(--header-scroll);
+}
+.header .logo{
+    width: 250px;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+.header .logo h1{
+    color: var(--white);
+    font-family: "Playwrite BE VLG", cursive;
+    font-optical-sizing: auto;
+    font-weight:bolder;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+.header .nav{
+    width: calc(100% - 250px);
+    height: 100%;
+    display: block;
+}
+.header .nav.open{
+    display: flex;
+}
+.header .nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+    padding-right: 1em;
+    animation: show .3s ease-in-out;
+}
+.header .nav ul li{
+    min-width: 120px;
+    height: auto;
+    list-style: none;
+    margin-right: 1em;
+}
+.header .nav ul li a{
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    position: relative;
+    padding: .5em 0em;
+}
+
+.header .nav ul li a::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0px;
+    height: 3px;
+    background: var(--border);
+    border-radius: .5em;
+    transition: all .3s ease-in-out;
+}
+.header .nav ul li a:hover::before,
+.header .nav ul li:nth-child(1) a:before{width: 30px;}
+/* Estilos de la seccione sobre mi */
+section{
+    width: 100%;
+    background: var(--header-scroll);
+    position: relative;
+    z-index: 0;
+}
+section:nth-child(even){
+    background-color: transparent;
+}
+.sobre__mi{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.capa{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.637);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.sobre__mi .my__description{
+    width: 50%;
+    position: relative;
+    z-index: 2;
+}
+.sobre__mi .my__description p{
+    text-align: justify;
+    padding: .4em 1.5em;
+    color: var(--white);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+.sobre__mi .my__description p strong{
+    border-bottom: 3px solid rgb(39, 133, 196);
+    margin: 0em .4em;
+}
+.sobre__mi .my__description .im{
+    display: flex;
+    align-items: center;
+}
+.sobre__mi .my__description p span{
+    padding: .2em .5em .2em 0em;
+    margin: 0em .4em;
+    position: relative;
+    letter-spacing: 1px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--white);
+    animation: writing 2s steps(22) ,transparencia .5s step-end infinite;
+}
+.sobre__mi .my__description p span::before{
+    content: "";
+    position: absolute;
+    width: 94%;
+    height: 3px;
+    background: rgb(39, 133, 196);
+    bottom: 0;
+}
+.sobre__mi .redes{
+    padding: .4em 1em;
+    overflow: hidden;
+    display: flex;
+}
+.sobre__mi .redes a{
+    text-decoration: none;
+    display: grid;
+    margin: .5em;
+    padding: .5em;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+}
+.sobre__mi .redes a:nth-child(1):hover{background: blue;}
+.sobre__mi .redes a:nth-child(2):hover{
+    background: linear-gradient(
+        210deg,
+        rgb(128, 0, 43),
+        purple,
+        red,
+        yellow
+    );
+}
+.sobre__mi .redes a:nth-child(3):hover{background: rgb(5, 170, 5);}
+.sobre__mi .redes a:nth-child(4):hover{background: rgba(0, 0, 0, 0.781);}
+
+.sobre__mi .redes img{
+    width: 22px;
+    aspect-ratio: 1/1;
+}
+
+/* Estilos de la seccion de contacto */
+.contacto{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(450px,100%),1fr));
+    position: relative;
+}
+.contacto .ubicacion,
+.contacto .formulario{
+    padding: 1em;
+    position: relative;
+    z-index: 2;
+
+}
+.contacto form{
+    border-radius: .3em;
+}
+.contacto .row{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: .3em;
+    border-radius: .2em;
+}
+
+.contacto .row input{
+    width: 100%;
+    height: 40px;
+    text-align: start;
+    outline: none;
+    background: transparent;
+    color:var(--white);
+    border: 1px solid var(--indigo-dye);
+    border-radius: inherit;
+    font-size: .9rem;
+    padding: 0em 1em;
+}
+.contacto .row input[type=submit]{
+    background: var(--indigo-dye);
+    border: none;
+    width: 50%;
+    cursor: pointer;
+    text-align: center;
+}
+.contacto .row textarea{
+    width: 100%;
+    height: 300px;
+    outline: none;
+    resize: none;
+    background: transparent;
+    color:var(--white);
+    padding: 1em;
+    border: 1px solid var(--indigo-dye);
+    border-radius: inherit;
+    font-size: .9rem;
+}
+.contacto .ubicacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contacto .ubicacion .items{
+    margin-bottom: 1em;
+    width: 80%;
+    padding: 1em;
+    /* border: 1px solid var(--caribbean-current); */
+    display: flex;
+    align-items: center;
+    height: auto;
+    color: var(--white);
+    border-radius: .2em;
+    font-size: .8rem;
+}
+.contacto .ubicacion .items:hover .content__img{background: var(--caribbean-current);}
+.contacto .ubicacion h3{
+    font-size: 1rem;
+    color: var(--white);
+}
+.contacto .ubicacion .items .content__img{
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: .8em;
+    display: grid;
+    place-content: center;
+    margin: 0em 1em;
+    transition: all .3s ease-in-out;
+}
+.contacto .ubicacion img{
+    width: 25px;
+    aspect-ratio: 1/1;
+}
+/* footer estilos */
+.footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: var(--indigo-dye);
+    padding: 3em 0em;
+}
+.footer p{
+    text-align: center;
+    color: var(--white);
+    font-size: 1rem;
+    position: relative;
+    z-index: 2;
+}
+.footer p strong{
+    font-family: "Playwrite BE VLG", cursive;
+    font-optical-sizing: auto;
+    font-weight:bolder;
+    font-style: normal;
+}
+.footer .subir{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -10px;
+    z-index: 99;
+    left: calc(50% - 25px);
+    border: none;
+    background: var(--caribbean-current);
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+}
+
+.footer .subir img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: inherit;
+}
+@keyframes transparencia {
+    50%{border-color: transparent;}
+}
+@keyframes writing {
+   from{
+    width: 0;
+   }to{
+    width: 22ch;
+   }
+}
+@keyframes show {
+    from{
+        opacity: .7;
+        scale: 30%;
+    }
+    to{
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+
+@media screen and (max-width:930px) {
+    .header .hamburguesa{display: block;}
+    .header .logo{width: 100%;}
+    .header .nav{
+        position: absolute;
+        background: var(--header-scroll);
+        width: 100%;
+        height: 100vh;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    .header .nav ul{
+        width: 80%;
+        height: 80%;
+        border: 1px solid var(--white);
+        border-radius: .4em;
+        flex-direction: column;
+        justify-content: start;
+        padding: 1em;
+        background: inherit;
+    }
+    .header .nav ul li{
+        width: 100%;
+        margin: .5em 0em;
+    }
+    .root{
+        background-size: fill;
+    }
+    .sobre__mi .my__description{
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+    .contacto .ubicacion .items{
+        width: 100%;
+    }
+}
