@@ -140,6 +140,40 @@ section{
     position: relative;
     z-index: 0;
 }
+section h2{
+    width: 100%;
+    font-size: 1.4rem;
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 1em;
+}
+section h3{
+    font-size: .9rem;
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+    padding: 1em;
+}
+section h2::before{
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 1px;
+    left: calc(50% - 100px);
+    bottom: 0;
+    background: var(--white);
+}
+section h2::after{
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 3px;
+    left: calc(50% - 25px);
+    bottom: 0;
+    background: var(--white);
+}
 section:nth-child(even){
     background-color: transparent;
 }
@@ -152,7 +186,7 @@ section:nth-child(even){
 .capa{
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.637);
+    background: rgba(0, 0, 0, 0.596);
     position: absolute;
     top: 0;
     left: 0;
@@ -227,12 +261,80 @@ section:nth-child(even){
     width: 22px;
     aspect-ratio: 1/1;
 }
+/* Estilos de mis habilidades */
+.misHabilidades{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+.nav__skills{
+    width: 400px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(100px,100%),120px));
+    gap: .4em;
+    margin: 1em 0em;
+    position: relative;
+    z-index: 2;
+    place-content: center;
+}
+.nav__skills button{
+    cursor: pointer;
+    background: var(--indigo-dye);
+    color: var(--white);
+    font-size: .9rem;
+    border: none;
+    border-radius: .2em;
+    transition: all .2s ease-in-out;
+    padding: .5em;
+}
+.nav__skills button.focus{
+    background: var(--white);
+    color: var(--jet);
+}
+.misHabilidades .content__skills{
+    width: 80%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    margin: 1em 0em;
+}
+.misHabilidades .items__skills{
+    width: 50%;
+    transition: all .3s ease-in-out;
+    animation: show .3s ease-in-out;
+}
+.misHabilidades .content__progress{
+    width: 100%;
+    height: auto;
+    background: var(--indigo-dye);
+    border-radius: .5em;
+}
+.misHabilidades .item__progress{
+    width: 50%;
+    height: 5px;
+    background:var(--platinum);
+    position: relative;
+    border-radius: inherit;
+}
+.misHabilidades .item__progress::before{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    background: var(--caribbean-current);
+    right: 0;
+    top: -8px;
+}
 
 /* Estilos de la seccion de contacto */
 .contacto{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(min(450px,100%),1fr));
     position: relative;
+    padding-top: 100px;
+
 }
 .contacto .ubicacion,
 .contacto .formulario{
@@ -386,6 +488,9 @@ section:nth-child(even){
 
 
 @media screen and (max-width:930px) {
+    .root{
+        background-size: fill;
+    }
     .header .hamburguesa{display: block;}
     .header .logo{width: 100%;}
     .header .nav{
@@ -411,9 +516,7 @@ section:nth-child(even){
         width: 100%;
         margin: .5em 0em;
     }
-    .root{
-        background-size: fill;
-    }
+    
     .sobre__mi .my__description{
         width: 100%;
         position: relative;
@@ -422,4 +525,5 @@ section:nth-child(even){
     .contacto .ubicacion .items{
         width: 100%;
     }
+    .nav__skills{width: 100%;}
 }
