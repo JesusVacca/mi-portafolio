@@ -33,7 +33,7 @@ document.getElementById('hamburguesa').addEventListener('click',function(){
 const mySkllis = [
     {
         title:"Java",
-        porcentaje:90,
+        porcentaje:80,
         type:"lenguaje"
     },
     {
@@ -48,17 +48,17 @@ const mySkllis = [
     },
     {
         title:"Spring boot",
-        porcentaje:60,
-        type:"frameWork"
-    },
-    {
-        title:"Django",
         porcentaje:40,
         type:"frameWork"
     },
     {
+        title:"Django",
+        porcentaje:30,
+        type:"frameWork"
+    },
+    {
         title:"MySql",
-        porcentaje:50,
+        porcentaje:40,
         type:"db"
     },
     {
